@@ -1,0 +1,10 @@
+.navbar{
+  height: 50px;
+  width: 250px;
+  background: aquamarine;
+}
+.text{
+  color: blue;
+  font-style: initial;
+  display: inline-block;
+}

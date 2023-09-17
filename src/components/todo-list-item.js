@@ -1,9 +1,14 @@
 import React from "react";
 
 
-const TodoListItem = () =>{
-  return(
-    <li>Обучение React</li>
+const TodoListItem = ({label, important = false}) => {
+  const liStyle = {
+    color: important ? 'green': 'yelow'
+  };
+
+  return (
+
+    <span style={liStyle}>{label}</span>
   )
 }
 
