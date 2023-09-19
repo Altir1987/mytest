@@ -3,15 +3,19 @@ import Listitem from "./todo-list-item";
 import TodoListItem from "./todo-list-item";
 
 
-const TodoList = ({label}) => {
+const TodoList = ({todos}) => {
 
+  const element = todos.map((item)=>{
+    const {id,...itemProps}=item;
+    return(
+      <li key={id}><TodoListItem {...itemProps}
+      /></li>
+    )
+  })
 
-  return(
+  return (
     <ul>
-      <li><TodoListItem label="Отжимание"/></li>
-      <li><TodoListItem label="Созвонится с офисом" important/></li>
-      <li><TodoListItem label="Уволить всех в Ubisoft"
-      important /></li>
+      {element}
     </ul>
   )
 }

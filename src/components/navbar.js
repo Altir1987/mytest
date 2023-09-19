@@ -1,12 +1,12 @@
 import React from "react";
-import s from './navbar.module.css'
+import style from './navbar.module.css'
 
 
 const Navbar=()=>{
   return(
-    <nav className={s.navbar}>
+    <nav className={style.navbar}>
       <div>
-        <ul className={s.text}>Для ленивых поп</ul>
+        <ul className={style.text}>Для ленивых поп</ul>
       </div>
     </nav>
   )

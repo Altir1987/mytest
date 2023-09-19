@@ -2,26 +2,30 @@ import React from "react";
 import ReactDOM from 'react-dom';
 
 import TodoList from "./components/todo-list";
-import AppHeder from "./components/apphelper";
+import AppHeder from "./components/appHeder";
 import SerchPanel from "./components/serchpanel";
 import Navbar from "./components/navbar";
-import s from './index.module.css'
+import style from './index.module.css'
 
 
+const App = () => {
+  const todoDate = [
+    {label: 'Уволить всех с Ubisoft', important: false,id:1},
+    {label: 'Позвонить жене', important: true,id:2},
+    {label: 'Написать другу', important: false,id:3},
+    {label: 'Выпить кофе', important: true,id:4},
 
-
-
-const App = () =>{
- return(
-   <main className={s.main}>
-   <div className={s.indexcss}>
-     <Navbar/>
-     <AppHeder/>
-     <SerchPanel/>
-     <TodoList/>
-   </div>
-   </main>
- )
+  ]
+  return (
+    <main className={style.main}>
+      <div className={style.indexcss}>
+        <Navbar/>
+        <AppHeder/>
+        <SerchPanel/>
+        <TodoList todos={todoDate}/>
+      </div>
+    </main>
+  )
 }
 
 export default App

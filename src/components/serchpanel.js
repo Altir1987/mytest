@@ -1,12 +1,12 @@
 import React from "react";
-import s from './serchpanel.module.css'
+import style from './serchpanel.module.css'
 
 
 
 const SerchPanel = () => {
 
   return(
-    <input className={s.panel} placeholder="   поиск"/>
+    <input className={style.panel} placeholder="   поиск"/>
   )
 }
 
