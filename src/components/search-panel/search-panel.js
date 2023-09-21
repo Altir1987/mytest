@@ -1,6 +1,6 @@
 import React from "react";
 import style from './serchpanel.css'
-import ItemStatusFilter from "./item-status-filter";
+import ItemStatusFilter from "../item-status-filter/item-status-filter";
 
 
 
