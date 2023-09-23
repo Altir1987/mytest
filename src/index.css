@@ -6,9 +6,14 @@
 .top-panel {
   margin: 1rem 0;
 }
+
 .main {
   background-color: aqua;
-
   margin-left: 600px;
-  margin-right:600px;
+  margin-right: 600px;
+}
+
+main:hover {
+  cursor: pointer;
+  border-color: red;
 }
