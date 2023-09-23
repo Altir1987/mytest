@@ -10,22 +10,22 @@ class TodoListItem extends React.Component {
   }
 
   onLabelClick = () => {
-    this.setState((state)=>{
+    this.setState(({done})=>{
       return{
-        done: !state.done
+        done: !done
       }
     });
   }
   onMarkImportant = () => {
-    this.setState((state)=>{
+    this.setState(({important})=>{
       return{
-        important: !state.important
+        important: !important
       }
     });
   }
 
   render() {
-    const { label } = this.props;
+    const { label, onDelete } = this.props;
     const { done, important } = this.state;
     const classNames = `todo-list-item ${done ? 'done' : ''}`;
 
@@ -57,13 +57,14 @@ class TodoListItem extends React.Component {
           >
             <i className="fa fa-exclamation" />
           </button>
-          <button type="button" className="btn btn-outline-danger btn-sm float-right">
+          <button type="button" className="btn btn-outline-danger btn-sm float-right"
+          onClick={onDelete}>
             <i className="fa fa-trash-o" />
           </button>
         </div>
       </span>
     );
-  }
+  }nDelete
 }
 
 export default TodoListItem;

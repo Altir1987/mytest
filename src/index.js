@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 
@@ -11,31 +11,50 @@ import './index.css';
 import {findAllByDisplayValue} from "@testing-library/react";
 
 
-const App = () =>
-{
+export default class App extends Component {
 
-  const todoData = [
-    { label: 'позвонить Жене', important: false, id: 1 },
-    { label: 'Уволить с Ubisoft', important: true, id: 2 },
-    { label: 'Совещание', important: false, id: 3 },
-    { label: 'Уроки', important: false, id: 4 },
-    { label: 'Пообедать', important: false, id: 5 }
-  ];
+  state = {
+    todoData: [
+      {label: 'позвонить Жене', important: false, id: 1},
+      {label: 'Уволить с Ubisoft', important: true, id: 2},
+      {label: 'Совещание', important: false, id: 3},
+      {label: 'Уроки', important: false, id: 4},
+      {label: 'Пообедать', important: false, id: 5}
+    ]
+  }
+  deleteItem = (id) => {
+    this.setState(({todoData}) => {
+      const idx = todoData.findIndex((el) => el.id === id)
+      const newArray = [
+        ...todoData.slice(0, idx),
+        ...todoData.slice(idx + 1)
+      ]
+      return {
+        todoData: newArray
+      }
+    })
+  }
 
-  return (
-    <main className="main">
-    <div className="todo-app">
-      <AppHeader toDo={1} done={1} />
-      <div className="top-panel d-flex">
-        <SearchPanel />
-        <ItemStatusFilter />
-      </div>
+  render() {
 
-      <TodoList todos={todoData} />
-    </div>
-    </main>
-  );
+    return (
+      <main className="main">
+        <div className="todo-app">
+          <AppHeader toDo={1} done={1}/>
+          <div className="top-panel d-flex">
+            <SearchPanel/>
+            <ItemStatusFilter/>
+          </div>
+
+          <TodoList todos={this.state.todoData}
+                    onDeledet={this.deleteItem}/>
+        </div>
+      </main>
+    );
+  }
+
+
 };
 
-ReactDOM.render(<App />,
+ReactDOM.render(<App/>,
   document.getElementById('root'));
