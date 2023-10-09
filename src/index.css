@@ -9,8 +9,9 @@
 
 .main {
   background-color: aqua;
-  margin-left: 600px;
-  margin-right: 600px;
+  max-width: 1200px; /* Максимальная ширина элемента */
+  margin: 0 auto; /* Установка автоматичесных боковых отступов для центрирования */
+  padding: 20px; /* Добавление внутренних отступов для визуального пространства */
 }
 
 main:hover {
